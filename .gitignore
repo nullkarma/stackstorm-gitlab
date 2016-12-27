@@ -1,0 +1,5 @@
+.idea
+.gitlab-ci.yml
+test/
+ci/
+*.pyc
