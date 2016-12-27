@@ -29,7 +29,7 @@ gitlab.artifact.dl.and.unzip:
       action: tools.unzip_archive
       input:
         archive: <% task(download_artifact).result.result.artifact %>
-        unzip_path: "<% $.unzip_path %>/archives/<% $.ref %>/<% $.project %>.zip"
+        unzip_path: "<% $.unzip_path %>/archives/<% $.ref %>/<% $.project %>"
         list_content: true
       publish:
         files: <% task(unzip_artifact).result.result.content %>
