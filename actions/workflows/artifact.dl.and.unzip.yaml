@@ -22,14 +22,14 @@ gitlab.artifact.dl.and.unzip:
           PRIVATE-TOKEN: <% $.token %>
         params:
           job: <% $.artifact_build_job %>
-        output_file: "<% $.unzip_path %>/archives/<% $.hook.object_attributes.ref %>/<% $.hook.project.namespace %>/<% $.hook.project.name %>.zip"
+        output_file: "<% $.unzip_path %>/archives/<% $.ref %>/<% $.project %>.zip"
       on-success: unzip_artifact
 
     unzip_artifact:
       action: tools.unzip_archive
       input:
         archive: <% task(download_artifact).result.result.artifact %>
-        unzip_path: "<% $.unzip_path %>/<% $.hook.object_attributes.ref%>/<% $.hook.project.namespace %>/<% $.hook.project.name %>"
+        unzip_path: "<% $.unzip_path %>/archives/<% $.ref %>/<% $.project %>.zip"
         list_content: true
       publish:
         files: <% task(unzip_artifact).result.result.content %>
