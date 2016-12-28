@@ -9,6 +9,7 @@ entry_point: "workflows/artifact.dl.and.unzip.yaml"
 parameters:
   gitlab_url:
     type: string
+    required: true
     description: "Gitlab Url with http(s)"
   token:
     type: string
@@ -17,6 +18,7 @@ parameters:
     type: string
   ref:
     type: string
+    default: master
     description: "branch/ref"
   artifact_build_job:
     type: string
