@@ -7,6 +7,7 @@ gitlab.artifact.dl.and.unzip:
     - project
     - ref
     - artifact_build_job
+    - save_as
     - unzip_path
 
   output:
@@ -22,14 +23,14 @@ gitlab.artifact.dl.and.unzip:
           PRIVATE-TOKEN: <% $.token %>
         params:
           job: <% $.artifact_build_job %>
-        save_as: "<% $.unzip_path %>/archives/<% $.ref %>/<% $.project %>.zip"
+        save_as: "<% $.save_as %>.zip"
       on-success: unzip_artifact
 
     unzip_artifact:
       action: tools.unzip_archive
       input:
         archive: <% task(download_artifact).result.result.artifact %>
-        unzip_path: "<% $.unzip_path %>/archives/<% $.ref %>/<% $.project %>"
+        unzip_path: <% $.unzip_path %>
         list_content: true
       publish:
         files: <% task(unzip_artifact).result.result.content %>
