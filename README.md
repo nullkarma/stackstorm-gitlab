@@ -1,5 +1,13 @@
 # Gitlab Integration Pack
 
+## Configuraton
+
+```yaml
+url: http://gitlab.example.com
+token: private-token
+verify_ssl: False
+```
+
 ## Actions
 
 ### Projects
