@@ -9,7 +9,6 @@ entry_point: "workflows/artifact.dl.and.unzip.yaml"
 parameters:
   url:
     type: string
-    required: true
     description: "Gitlab URL with http(s)"
   token:
     type: string

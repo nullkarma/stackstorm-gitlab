@@ -1,6 +1,6 @@
 ---
 
-name: project.project.list
+name: project.list
 description: "List projects"
 
 runner_type: python-script
