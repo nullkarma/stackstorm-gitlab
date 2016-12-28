@@ -26,3 +26,7 @@ parameters:
   unzip_path:
     type: string
     required: true
+  save_as:
+    type: string
+    required: true
+    default: /tmp/archive.zip
