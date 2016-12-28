@@ -2,7 +2,7 @@ version: '2.0'
 
 gitlab.artifact.dl.and.unzip:
   input:
-    - gitlab_url
+    - url
     - token
     - project
     - ref
@@ -18,7 +18,7 @@ gitlab.artifact.dl.and.unzip:
     download_artifact:
       action: tools.download_archive
       input:
-        url: "<% $.gitlab_url %>/<% $.project %>/builds/artifacts/<% $.ref %>/download"
+        url: "<% $.url %>/<% $.project %>/builds/artifacts/<% $.ref %>/download"
         headers:
           PRIVATE-TOKEN: <% $.token %>
         params:

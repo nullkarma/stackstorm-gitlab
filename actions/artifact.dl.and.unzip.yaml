@@ -7,10 +7,10 @@ runner_type: mistral-v2
 entry_point: "workflows/artifact.dl.and.unzip.yaml"
 
 parameters:
-  gitlab_url:
+  url:
     type: string
     required: true
-    description: "Gitlab Url with http(s)"
+    description: "Gitlab URL with http(s)"
   token:
     type: string
     description: "Gitlab Private-Token"
