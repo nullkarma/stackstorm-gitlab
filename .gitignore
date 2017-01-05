@@ -1,5 +1,6 @@
 .idea
-.gitlab-ci.yml
-test/
-ci/
 *.pyc
+ci/*
+test/*
+.gitlab-ci.yml
+.gitignore
