@@ -1,0 +1,8 @@
+stages:
+  - build
+
+install_pack:
+  stage: build
+  script:
+    echo "dummy"
+

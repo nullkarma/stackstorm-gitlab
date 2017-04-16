@@ -1,10 +1,10 @@
 ---
 
-name: project.pipelines.list
-description: "List all project pipelines"
+name: project.info
+description: "Get project metadata"
 
 runner_type: python-script
-entry_point: get_pipelines.py
+entry_point: project_info.py
 
 parameters:
   url:

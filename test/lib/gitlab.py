@@ -1,11 +1,16 @@
 #!/usr/bin/env python
 
-from st2actions.runners.pythonrunner import Action
+#from st2actions.runners.pythonrunner import Action
 import requests
 from urllib import quote_plus
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
+
+class Action(object):
+    def __init__(self, config):
+        self.config = config
 
 
 def override_token(func):
@@ -28,7 +33,6 @@ class RequestsMethod(object):
 
         requests_method = methods.get(method)
         response = requests_method(url, headers=headers, params=params, verify=verify_ssl)
-
         if response.status_code:
             return response.json()
         else:
