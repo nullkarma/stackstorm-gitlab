@@ -29,7 +29,7 @@ class RequestsMethod(object):
         requests_method = methods.get(method)
         response = requests_method(url, headers=headers, params=params, verify=verify_ssl)
 
-        if response.status_code == 200:
+        if response.status_code:
             return response.json()
         else:
             return response.text
@@ -38,7 +38,7 @@ class RequestsMethod(object):
 class GitlabRestClient(Action):
     def __init__(self, config):
         super(GitlabRestClient, self).__init__(config=config)
-        self._api_ext = 'api/v3'
+        self._api_ext = 'api/v4'
         self.url = self.config.get('url')
         self.token = self.config.get('token')
         self.verify_ssl = self.config.get('verify_ssl')
@@ -83,6 +83,13 @@ class GitlabPipelineAPI(GitlabRestClient):
         real_endpoint = "{0}/{1}/pipelines".format(self._api_endpoint, quote_plus(endpoint))
         return self._get(url, real_endpoint, token=self.token, headers=self._headers, **kwargs)
 
-    def post(self, url, endpoint, *args, **kwargs):
-        real_endpoint = "{0}/{1}/pipeline".format(self._api_endpoint, quote_plus(endpoint))
-        return self._post(url, real_endpoint, token=self.token, headers=self._headers, **kwargs)
+    def post(self, url, project, ref, trigger_token, variables, *args, **kwargs):
+        real_endpoint = "{0}/{1}/trigger/pipeline".format(self._api_endpoint, quote_plus(project))
+
+        p = {"token": trigger_token,
+             "ref": ref}
+        if variables:
+            for k, v in variables.iteritems():
+                p.update({"variables[{}]".format(k): v})
+
+        return self._post(url, real_endpoint, token=self.token, headers=self._headers, params=p, **kwargs)
