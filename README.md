@@ -21,14 +21,13 @@ verify_ssl: False
 
 ### Artifacts
 
-* `artifact.dl.and.unzip` - Download the latest artifact and unzip it
+* `artifact.unzip` - Download the latest artifact and unzip it
 
 ## Dependencies
 
 ### packs
 
-* [tools](https://github.com/nullkarma/stackstorm-tools) - used by `artifact.dl.and.unzip` workflow.
+* [tools](https://github.com/nullkarma/stackstorm-tools) - used by `artifact.unzip` workflow.
 
-Since `artifact.dl.and.unzip` is a workflow build from a 3rd party pack,
+Since `artifact.unzip` is a workflow build from a 3rd party pack,
 it won't be able to read `url` and `token` from your `gitlab.yaml` config.
-It may be stored and encrypted in st2's key-value store.
