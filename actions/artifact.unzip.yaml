@@ -1,10 +1,10 @@
 ---
 
-name: artifact.dl.and.unzip
+name: artifact.unzip
 description: "Download gitlab Archive and Unzip it to a directory"
 
 runner_type: mistral-v2
-entry_point: "workflows/artifact.dl.and.unzip.yaml"
+entry_point: "workflows/artifact.unzip.yaml"
 
 parameters:
   url:
