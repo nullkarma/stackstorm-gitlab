@@ -1,5 +1,7 @@
 # Gitlab Integration Pack
 
+Gitlab API v4 supported.
+
 ## Configuraton
 
 ```yaml
