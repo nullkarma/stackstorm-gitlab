@@ -18,7 +18,7 @@ gitlab.artifact.unzip:
     download_artifact:
       action: tools.archive.download
       input:
-        url: "<% $.url %>/<% $.project %>/builds/artifacts/<% $.ref %>/download"
+        url: "<% $.url %>/api/v4/<% $.project %>/jobs/artifacts/<% $.ref %>/download"
         headers:
           PRIVATE-TOKEN: <% $.token %>
         params:

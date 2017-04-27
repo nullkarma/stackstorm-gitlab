@@ -15,6 +15,7 @@ parameters:
     description: "Gitlab Private-Token"
   project:
     type: string
+    description: "Must be either the project_id or url encoded namespace/project ('/' => %2F)"
   ref:
     type: string
     default: master
