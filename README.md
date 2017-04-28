@@ -14,7 +14,7 @@ verify_ssl: False
 
 ### Projects
 
-* `project.info` - Returns a list of gitlab projects
+* `project.info` - Returns project information
 
 ### Pipelines
 
